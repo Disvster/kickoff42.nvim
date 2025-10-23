@@ -76,16 +76,6 @@ vim.opt.scrolloff = 10
 -- Keybind to open Copilot chat window
 vim.api.nvim_set_keymap('n', '<leader>cp', ':CopilotChatOpen<CR>', { noremap = true, silent = true })
 
--- LSP
--- Keybind to enable on-screen diagnostics
-vim.api.nvim_set_keymap('n', '<leader>lt', ':lua vim.diagnostic.config({virtual_text=true})<CR>', { noremap = true, silent = true })
-
--- Keybind to disable virtual text for diagnostics
-vim.api.nvim_set_keymap('n', '<leader>lf', ':lua vim.diagnostic.config({virtual_text=false})<CR>', { noremap = true, silent = true })
-
--- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
 -- [[ Basic Keymaps ]]
 
 -- Clear highlights on search when pressing <Esc> in normal mode
@@ -123,3 +113,35 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- [[ Plugin Keymaps ]]
+
+-- [Spectre]
+vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
+    desc = "Toggle Spectre"
+})
+vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+    desc = "Search current word"
+})
+vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+    desc = "Search current word"
+})
+vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+    desc = "Search on current file"
+})
+
+-- [ LSP ]
+-- Keybind to enable on-screen diagnostics
+vim.api.nvim_set_keymap('n', '<leader>lt', ':lua vim.diagnostic.config({virtual_text=true})<CR>', { noremap = true, silent = true })
+
+-- Keybind to disable virtual text for diagnostics
+vim.api.nvim_set_keymap('n', '<leader>lf', ':lua vim.diagnostic.config({virtual_text=false})<CR>', { noremap = true, silent = true })
+
+-- Diagnostic keymaps
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+-- [CopilotChat]
+-- Keybind to open Copilot chat window
+vim.api.nvim_set_keymap('n', '<leader>cp', ':CopilotChatOpen<CR>', { noremap = true, silent = true, desc = "toggle [C]o[P]ilot Chat Window"})
+vim.g.copilot_no_tab_map = true
+vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("\\<S-Tab>")', { expr = true, replace_keycodes = false })
