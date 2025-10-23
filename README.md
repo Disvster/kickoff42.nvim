@@ -1,12 +1,24 @@
-# THIS IS STILL VERY MUCH A WIP!
+# The install method below for homebrew, neovim, etc is deprecated!
 
-You can follow this guide but at your own risk.
+**42Porto no longers accepts files in `sgoinfre/` that are not related to a project's VM or 42-Advanced!**
 
-run `:checkhealth` after the install to know the status of your set-up.
+This means that you have to manually install neovim and it's dependencies. I recommend going to **Neovim**, **fd-find** and **ripgrep** repos and downloading and extracting the `.tar` files, then placing its contents where they should be in your home dir. This isn't hard but I plan on writing a script that will automate this process in the future. It will be part of this repo.
 
-There are a lot of rough edges that are affecting the installation and set-up process. Need to run more tests with my coleagues (applications for beta-testers are open hihi).
+The **Neovim** config I have here remains unaffected and working and I plan on improving it when I feel the need to.
 
-Will add a to-do list later.
+## After installing this config for the first time, please:
+
+- ### run `:checkhealth` to know the status of your set-up
+
+This will help debug any errors you might be having, like missing dependencies.
+Feel free to PM me (or open an issue) if have any errors you are not able to solve.
+
+- ### press `<space><s><k>`
+
+This will open a pop-up window with all the keybinds you have at your disposal. 
+
+I believe it is crucial for your **nvim** experience to know what these are, what they do and how to use them. 
+This is what makes neovim great and fun to use **imo**, and if you don't know how to use them or that they even exist you'll be missing out!
 
 # kickoff42.nvim
 
@@ -34,7 +46,7 @@ I added inside `kickstart_docs/` 2 files from kickstart.nvim (the original READM
 # GUIDE - Installation and Set-up
 
 **DISCLAIMER**: 
-During this guide I will always use Homebrew as a package manager (explanation below). If you're not using it then replace everytime I use `brew` with whatever package manager you want.
+During this guide I will always use Homebrew as a package manager (explanation below). If you're not using it then replace every time I use `brew` with whatever package manager you want.
 
 ## Installation @ 42 
 
@@ -179,6 +191,6 @@ This project wouldn't exist if it wasn't for my friends still using vim and my f
 
 But in all seriousness I feel like the **syntax highlighting**, seamless **navigation** through code/codebases, **on-screen** **compiler** and **norminette warnings**, and even CoPilot chat, helped me a LOT in optimizing my workflow without compromising simplicity. 
 
-This doesn't aim to be a hand-holding config at all. I believe most AI and LSP tools do not help a begginner programmer, It's like learning how to ride a bike but never removing the training wheels off.
+This doesn't aim to be a hand-holding config at all. I believe most AI and LSP tools do not help a beginner programmer, It's like learning how to ride a bike but never removing the training wheels off.
 
 Let me know if you have any doubts/issues and feel free to PM me on slack, my user is **manmaria**.
