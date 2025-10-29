@@ -62,7 +62,7 @@ require("lazy").setup({
 	-- Open and use Spectre inside a single file with '<space>sp'
 	-- Change every search result at once with '<space>R'
 	-- Change the search result your cursor is on with '<space>rc'
-	{ import = "plugins.util.spectre"},
+	{ import = "plugins.utils.spectre"},
 
 	-- this plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 	-- might run into issues with Norminette so it is disabled by default
