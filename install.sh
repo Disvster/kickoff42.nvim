@@ -17,7 +17,7 @@ done
 
 mkdir -p "$HOME/.local/bin" "$HOME/.local/share" "$HOME/.local/lib"
 
-# Function to prompt user
+# Function to prompt user to install packages
 confirm_install() {
   while true; do
     printf "Install %s? [y/N]: " "$1"
@@ -30,10 +30,23 @@ confirm_install() {
   done
 }
 
+# Function to prompt user to add ~/.local/bin to $PATH
+confirm_export() {
+  while true; do
+    printf "%s? [y/N]: " "$1"
+    read ans
+    case "$ans" in
+      [Yy]*) return 0 ;;
+      [Nn]*|"") return 1 ;;
+      *) echo "Please answer y or n." ;;
+    esac
+  done
+}
+
 # Add ~/.local/bin to PATH if not already present
 for shellrc in "$HOME/.bashrc" "$HOME/.zshrc"; do
   if [ -f "$shellrc" ] && ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc"; then
-    if confirm_install "add export PATH to $(basename "$shellrc")"; then
+    if confirm_export "Add `$HOME/.local/bin` to PATH to $(basename "$shellrc")"; then
       echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
       echo "Added PATH update to $shellrc"
     else
