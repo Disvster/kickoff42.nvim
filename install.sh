@@ -61,7 +61,7 @@ if confirm_install "fd-find"; then
   FD_LATEST=$(curl -s https://api.github.com/repos/sharkdp/fd/releases/latest | grep tag_name | cut -d '"' -f 4)
   # FD_VERSION="$FD_LATEST"
   FD_URL="https://github.com/sharkdp/fd/releases/download/${FD_LATEST}/fd-${FD_LATEST}-x86_64-unknown-linux-gnu.tar.gz"
-  curl -L -o fd-find$FD_LATEST.tar.gz --progress-bar "$FD_URL"
+  curl -L -o fd-find.tar.gz --progress-bar "$FD_URL"
   tar -xzvf fd-find.tar.gz
   mv fd-*/fd "$HOME/.local/bin/"
   rm -rf fd-find.tar.gz fd-*
