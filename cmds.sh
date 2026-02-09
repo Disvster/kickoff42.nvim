@@ -39,3 +39,5 @@ cp -r nvim-linux-x86_64/share/nvim $HOME/.local/share/
 cp -r nvim-linux-x86_64/lib/nvim $HOME/.local/lib/
 
 rm -rf nvim-linux-x86_64.tar.gz
+
+echo "https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-x86_64-unknown-linux-gnu.tar.gz"
