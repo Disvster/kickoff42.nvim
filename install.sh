@@ -17,17 +17,6 @@ done
 
 mkdir -p "$HOME/.local/bin" "$HOME/.local/share" "$HOME/.local/lib"
 
-# Add ~/.local/bin to PATH if not already present
-for shellrc in "$HOME/.bashrc" "$HOME/.zshrc"; do
-  if [ -f "$shellrc" ] && ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc"; then
-    echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
-    echo "Added PATH update to $shellrc"
-  fi
-done
-
-# Source profile if it exists
-[ -f "$HOME/.profile" ] && . "$HOME/.profile"
-
 # Function to prompt user
 confirm_install() {
   while true; do
@@ -40,6 +29,18 @@ confirm_install() {
     esac
   done
 }
+
+# Add ~/.local/bin to PATH if not already present
+for shellrc in "$HOME/.bashrc" "$HOME/.zshrc"; do
+  if [ -f "$shellrc" ] && ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc"; then
+    if confirm_install "add export PATH to $(basename "$shellrc")"; then
+      echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
+      echo "Added PATH update to $shellrc"
+    else
+      echo "Skipped PATH update for $shellrc"
+    fi
+  fi
+done
 
 # Install ripgrep
 if confirm_install "ripgrep"; then
