@@ -1,7 +1,8 @@
-if !$(ls $HOME/.profile); then
-	mkdir -p $HOME/.profile
+mkdir -p ~/.local/bin ~/.local/share
 
-echo 'export PATH="$HOME/.local/bin${PATH+:$PATH}"' >> ~/.profile
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 
 source ~/.profile
 
@@ -30,3 +31,11 @@ curl -L -o neovim.tar.gz https://github.com/neovim/neovim/releases/download/v0.1
 tar -xzvf neovim.tar.gz
 
 rm neovim.tar.gz
+
+cp nvim-linux-x86_64/bin/nvim $HOME/.local/bin/
+
+cp -r nvim-linux-x86_64/share/nvim $HOME/.local/share/
+
+cp -r nvim-linux-x86_64/lib/nvim $HOME/.local/lib/
+
+rm -rf nvim-linux-x86_64.tar.gz
