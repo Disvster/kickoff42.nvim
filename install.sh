@@ -49,6 +49,7 @@ if confirm_install "ripgrep"; then
   RG_URL="https://github.com/BurntSushi/ripgrep/releases/download/${RG_LATEST}/ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl.tar.gz"
   curl -L -o ripgrep.tar.gz --progress-bar "$RG_URL"
   tar -xzvf ripgrep.tar.gz
+  echo
   mv ripgrep-*/rg "$HOME/.local/bin/"
   rm -rf ripgrep.tar.gz ripgrep-*
 else
@@ -63,6 +64,7 @@ if confirm_install "fd-find"; then
   FD_URL="https://github.com/sharkdp/fd/releases/download/${FD_LATEST}/fd-${FD_LATEST}-x86_64-unknown-linux-gnu.tar.gz"
   curl -L -o fd-find.tar.gz --progress-bar "$FD_URL"
   tar -xzvf fd-find.tar.gz
+  echo 
   mv fd-*/fd "$HOME/.local/bin/"
   rm -rf fd-find.tar.gz fd-*
 else
@@ -77,6 +79,7 @@ if confirm_install "Neovim"; then
   NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_LATEST}/nvim-linux-x86_64.tar.gz"
   curl -L -o neovim.tar.gz "$NVIM_URL"
   tar -xzvf neovim.tar.gz
+  echo
   cp nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/"
   cp -r nvim-linux-x86_64/share/nvim "$HOME/.local/share/"
   cp -r nvim-linux-x86_64/lib/nvim "$HOME/.local/lib/"
