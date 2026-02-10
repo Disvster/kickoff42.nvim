@@ -28,6 +28,8 @@ Inside `kickstart_docs/` I added 2 files from kickstart.nvim (the original READM
 > [!NOTE]
 > This installation was done for the 42Porto campus environment, where we can't use `sudo` or a package manager. Instead we will install neovim and it's dependencies by downloading their binary files and placing them where they should be.
 
+run the script. will elaborate later
+
 
 ## External Dependencies
 
