@@ -36,8 +36,8 @@ confirm_export() {
     printf "%s? [y/N]: " "$1"
     read ans
     case "$ans" in
-      [Yy]*) return 0 ;;
-      [Nn]*|"") return 1 ;;
+      [Yy]*"") return 0 ;;
+      [Nn]*) return 1 ;;
       *) echo "Please answer y or n." ;;
     esac
   done
