@@ -59,7 +59,9 @@ if shellrc == "$HOME/.zshrc"; then
 	shellrc="$HOME/.bashrc"
 else if shellrc == "$HOME/.bashrc"; then
 	shellrc="$HOME/.zshrc"
+	fi
 fi
+
 if confirm_export "Also export $HOME/.local/bin to PATH in $(basename $shellrc)?"; then
   echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
   echo "Added PATH update to $(basename $shellrc)"
