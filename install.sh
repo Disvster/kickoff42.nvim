@@ -47,13 +47,26 @@ confirm_export() {
 shellrc="$HOME/.$(basename $SHELL)rc"
 # for shellrc in "$HOME/.bashrc" "$HOME/.zshrc"; do
 if ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc" 2>/dev/null; then
-	if confirm_export "Export $HOME/.local/bin to PATH in $(basename $shellrc)"; then
+  if confirm_export "Export $HOME/.local/bin to PATH in $(basename $shellrc)?"; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
     echo "Added PATH update to $(basename $shellrc)"
   else
     echo "Skipped PATH update for $(basename $shellrc)"
   fi
 fi
+
+if shellrc == "$HOME/.zshrc"; then
+	shellrc="$HOME/.bashrc"
+else if shellrc == "$HOME/.bashrc"; then
+	shellrc="$HOME/.zshrc"
+fi
+if confirm_export "Also export $HOME/.local/bin to PATH in $(basename $shellrc)?"; then
+  echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
+  echo "Added PATH update to $(basename $shellrc)"
+else
+  echo "Skipped PATH update for $(basename $shellrc)"
+fi
+
 
 # Install ripgrep
 if confirm_install "ripgrep"; then
