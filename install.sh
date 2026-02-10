@@ -44,6 +44,8 @@ confirm_export() {
 }
 
 # Add ~/.local/bin to PATH if not already present
+$SHELLRC="echo .$(echo $SHELL)rc"
+print $SHELLRC
 for shellrc in "$HOME/.bashrc" "$HOME/.zshrc"; do
   if [ -f "$shellrc" ] && ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc"; then
     if confirm_export "Export $HOME/.local/bin to PATH in $(basename "$shellrc")"; then
