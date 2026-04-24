@@ -20,7 +20,7 @@ printf "\n"
 printf "${BOLD}${BLUE}kickoff42.nvim Installer for 42School and similar environments${RESET}"
 printf "\nNo ${BOLD}sudo${RESET} or ${BOLD}package manager${RESET} required!\n"
 printf "${INFO} This script will install ${BOLD}Neovim${RESET}, ${BOLD}ripgrep${RESET}, and ${BOLD}fd-find${RESET} locally in ${BOLD}~/.local${RESET}"
-printf "${WARN} Make sure you cloned to this repo to the ${BLUE}$HOME/.config directory${RESET} with the name ${BLUE}nvim${RESET}."
+printf "\n${WARN} Make sure you cloned to this repo to the ${BLUE}$HOME/.config directory${RESET} with the name ${BLUE}nvim${RESET}."
 printf "${INFO} You can also run this script again everytime you want to ${CYAN}update${RESET} these packages to their latest versions!"
 printf "\n"
 
