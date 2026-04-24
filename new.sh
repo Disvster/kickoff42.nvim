@@ -88,7 +88,7 @@ printf "\n"
 
 # Install ripgrep
 if confirm_install "ripgrep"; then
-  printf "Installing ripgrep..."
+  printf "Installing ripgrep...\n"
   RG_LATEST=$(curl -s https://api.github.com/repos/BurntSushi/ripgrep/releases/latest | grep tag_name | cut -d '"' -f 4)
   RG_VERSION=$(printf "$RG_LATEST" | sed 's/^v//')
   RG_URL="https://github.com/BurntSushi/ripgrep/releases/download/${RG_LATEST}/ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl.tar.gz"
@@ -151,11 +151,11 @@ fi
 printf "\n"
 printf "${BOLD}${GREEN}Installation complete!${RESET} ${CHECK}"
 printf "\n"
-printf "${INFO} ${BOLD}First steps:${RESET}"
+printf "${INFO} ${BOLD}First steps:${RESET}\n"
 printf "  1. Run ${BOLD}nvim${RESET} to start Neovim.\n"
 printf "  2. ${STAR} Press the ${BOLD}\\${RESET} to open the file browser.\n"
 printf "  3. ${STAR} Explore the modular plugin structure in the ${BOLD}init.lua${RESET} file.\n"
-printf "  4. ${WARN} Update your personal info!\nEdit the ${BOLD}user${RESET} and ${BOLD}mail${RESET} fields in the ${BOLD}lua/plugins/42/42-header.lua${RESET} plugin file to your own ${BLUE}42${RESET} username and email!\n"
+printf "  4. ${WARN} Update your personal info!\n  - Edit the ${BOLD}user${RESET} and ${BOLD}mail${RESET} fields in the ${BOLD}lua/plugins/42/42-header.lua${RESET} plugin file to your own ${BLUE}42${RESET} username and email!\n"
 printf "\n"
 printf "${INFO} For more info, check the README or plugin files.\n"
 printf "\n"
