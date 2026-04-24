@@ -65,9 +65,9 @@ shellrc="$HOME/.$(basename $SHELL)rc"
 if ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc" 2>/dev/null; then
   if confirm_export "Export $HOME/.local/bin to PATH in $(basename $shellrc)"; then
     printf 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
-    printf "${CHECK} Added PATH update to ${BOLD}$(basename $shellrc)${RESET}"
+    printf "${CHECK} Added PATH update to ${BOLD}$(basename $shellrc)${RESET}\n"
   else
-    printf "${WARN} Skipped PATH update for $(basename $shellrc)"
+    printf "${WARN} Skipped PATH update for $(basename $shellrc)\n"
   fi
 fi
 
@@ -80,9 +80,9 @@ fi
 if ! grep -q 'export PATH="\$HOME/.local/bin:\$PATH"' "$shellrc" 2>/dev/null; then
   if confirm_export "Export $HOME/.local/bin to PATH in $(basename $shellrc)"; then
     printf 'export PATH="$HOME/.local/bin:$PATH"' >> "$shellrc"
-    printf "${CHECK} Added PATH update to ${BOLD}$(basename $shellrc)${RESET}"
+    printf "${CHECK} Added PATH update to ${BOLD}$(basename $shellrc)${RESET}\n"
   else
-    printf "${WARN} Skipped PATH update for $(basename $shellrc)"
+    printf "${WARN} Skipped PATH update for $(basename $shellrc)\n"
   fi
 fi
 
