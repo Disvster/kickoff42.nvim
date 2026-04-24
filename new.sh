@@ -25,7 +25,7 @@ printf "\n"
 # Check for required tools
 for cmd in curl tar; do
   if ! command -v $cmd >/dev/null 2>&1; then
-    printf "${CROSS} ${RED}Error:${RESET} ${BOLD}$cmd${RESET} is required but not installed. Aborting."
+    printf "${CROSS} ${RED}Error:${RESET} ${BOLD}$cmd${RESET} is required but not installed. Aborting.\n"
     exit 1
   fi
 done
@@ -40,7 +40,7 @@ confirm_install() {
     case "$ans" in
       [Yy]*|"") return 0 ;;
       [Nn]*) return 1 ;;
-      *) printf "Please answer y or n." ;;
+      *) printf "Please answer y or n.\n" ;;
     esac
   done
 }
@@ -53,7 +53,7 @@ confirm_export() {
     case "$ans" in
       [Yy]*|"") return 0 ;;
       [Nn]*) return 1 ;;
-      *) printf "Please answer y or n." ;;
+      *) printf "Please answer y or n.\n" ;;
     esac
   done
 }
@@ -106,7 +106,7 @@ printf "\n"
 
 # Install fd-find
 if confirm_install "fd-find"; then
-  printf "Installing fd-find..."
+  printf "Installing fd-find...\n"
   FD_LATEST=$(curl -s https://api.github.com/repos/sharkdp/fd/releases/latest | grep tag_name | cut -d '"' -f 4)
   FD_URL="https://github.com/sharkdp/fd/releases/download/${FD_LATEST}/fd-${FD_LATEST}-x86_64-unknown-linux-gnu.tar.gz"
   curl -L -o fd-find.tar.gz --progress-bar "$FD_URL"
@@ -123,7 +123,7 @@ printf "\n"
 
 # Install Neovim
 if confirm_install "Neovim"; then
-  printf "Installing Neovim..."
+  printf "Installing Neovim...\n"
   NVIM_LATEST=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep tag_name | cut -d '"' -f 4)
   NVIM_VERSION=$(printf "$NVIM_LATEST" | sed 's/^v//')
   NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_LATEST}/nvim-linux-x86_64.tar.gz"
@@ -155,7 +155,8 @@ printf "${INFO} ${BOLD}First steps:${RESET}\n"
 printf "  1. Run ${BOLD}nvim${RESET} to start Neovim.\n"
 printf "  2. ${STAR} Press the ${BOLD}\\${RESET} to open the file browser.\n"
 printf "  3. ${STAR} Explore the modular plugin structure in the ${BOLD}init.lua${RESET} file.\n"
-printf "  4. ${WARN} Update your personal info!\n  - Edit the ${BOLD}user${RESET} and ${BOLD}mail${RESET} fields in the ${BOLD}lua/plugins/42/42-header.lua${RESET} plugin file to your own ${BLUE}42${RESET} username and email!\n"
+printf "  4. ${WARN} Update your personal info!\n"
+printf "     ${WARN} Edit the ${BOLD}user${RESET} and ${BOLD}mail${RESET} fields in the ${BOLD}lua/plugins/42/42-header.lua${RESET} plugin file to your own ${BLUE}42${RESET} username and email!\n"  - Edit the ${BOLD}user${RESET} and ${BOLD}mail${RESET} fields in the ${BOLD}lua/plugins/42/42-header.lua${RESET} plugin file to your own ${BLUE}42${RESET} username and email!\n"
 printf "\n"
 printf "${INFO} For more info, check the README or plugin files.\n"
 printf "\n"
