@@ -19,7 +19,7 @@ STAR="${YELLOW}★${RESET}"
 printf "\n"
 printf "${BOLD}${BLUE}kickoff42.nvim Installer for 42School and similar environments${RESET}"
 printf "${INFO} This script will install ${BOLD}Neovim${RESET}, ${BOLD}ripgrep${RESET}, and ${BOLD}fd-find${RESET} locally in ${BOLD}~/.local${RESET}"
-printf "${STAR}\nNo ${BOLD}sudo${RESET} or ${BOLD}package manager${RESET} required!"
+printf "\n${STAR}No ${BOLD}sudo${RESET} or ${BOLD}package manager${RESET} required!"
 printf "${INFO} You can also run this script again everytime you want to ${CYAN}update${RESET} ${BOLD}Neovim${RESET}, ${BOLD}ripgrep${RESET}, and ${BOLD}fd-find${RESET} to their latest versions!"
 printf "\n"
 
